@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+    <!--Khai bao bean-->
+    <!--    <bean name="studentRepository" class="repository.StudentRepositoryImpl"></bean>-->
+    <!--    <bean name="studentService" class="service.StudentServiceImpl" autowire="byName">-->
+    <!--        Setter injection-->
+    <!--    <property name="studentRepository" ref="studentRepository"/>-->
+    <!--        Constructor injection-->
+    <!--        <constructor-arg name="studentRepository" ref="studentRepository"/>-->
+    <!--    </bean>-->
+
+    <!--    Su dung annotation context-->
+    <!--    Su dung annotaion-config hoac su dung component scan-->
+    <!--    <context:annotation-config/>-->
+    <context:component-scan base-package="service,repository"/>
+
+    <!--    Tim hieu bean scope-->
+    <!--    Singleton-->
+    <!--    Nguoc lai voi prototype-->
+    <!--    Trong 1 spring ioc container chi tao ra 1 object cua class do.-->
+    <!--    La default scope-->
+
+    <!--    Prototype-->
+    <!--    NGuoc lai voi singleton-->
+    <!--    Moi mot request co 1 bean rieng de su dung-->
+    <!--    Tang tinh doc lap-->
+    <!--    Han che: so luong object tang len, khi so request tang len-->
+
+    <!--    Request-->
+    <!--    Session-->
+    <!--    Global session-->
+</beans>
