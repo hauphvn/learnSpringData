@@ -14,7 +14,7 @@
     <!--    Su dung annotation context-->
     <!--    Su dung annotaion-config hoac su dung component scan-->
     <!--    <context:annotation-config/>-->
-    <context:component-scan base-package="com.coderzero.dao"/>
+    <context:component-scan base-package="com.coderzero.dao, com.coderzero.util"/>
 
     <!--    Tim hieu bean scope-->
     <!--    Singleton-->
@@ -31,4 +31,34 @@
     <!--    Request-->
     <!--    Session-->
     <!--    Global session-->
+<!--    Cau hinh datasource dung cho tien loi viec goi connection db-->
+    <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="jdbc:mysql://localhost:3306/learn_hibernate" />
+        <property name="username" value="root" />
+        <property name="password" value="disfgycdvbfg" />
+    </bean>
+    <bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
+
+<!--    Khi dung JdbcDaoSupport ta can dinh nghia bean cho class ma extend no-->
+    <bean name="studentDaoSupport" class="com.coderzero.dao.StudentDaoSupport">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+<!--    Cấu hình hibernate-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.coderzero.models"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="show_sql">true</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+            </props>
+        </property>
+    </bean>
+
+<!--    Cấu hình JPA -->
+
 </beans>
