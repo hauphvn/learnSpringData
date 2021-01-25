@@ -20,4 +20,12 @@ public class StudentHibernateDao {
         session.getTransaction().commit();
         session.close();
     }
+
+    public void saveStudent(Student student){
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(student);
+        session.getTransaction().commit();
+        session.close();
+    }
 }

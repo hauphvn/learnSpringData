@@ -6,6 +6,7 @@ import com.coderzero.dao.StudentJDBCDAO;
 import com.coderzero.models.Address;
 import com.coderzero.models.Fresher;
 import com.coderzero.models.Student;
+import com.coderzero.services.StudentService;
 import com.coderzero.util.MysqlJDBC;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -17,9 +18,10 @@ import java.util.List;
 public class StudentManagementApp {
     public static void main(String[] args) throws FileNotFoundException, SQLException {
         ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+        StudentService studentService = context.getBean("studentService", StudentService.class);
 //        StudentJDBCDAO studentDAO = context.getBean("studentJDBCDAO", StudentJDBCDAO.class);
 //        StudentDaoSupport studentDaoSupport = context.getBean("studentDaoSupport", StudentDaoSupport.class);
-        StudentHibernateDao studentHibernateDao = context.getBean("studentHibernateDao", StudentHibernateDao.class);
+//        StudentHibernateDao studentHibernateDao = context.getBean("studentHibernateDao", StudentHibernateDao.class);
 //        Student student = new Student();
 //        student.setName("Pham van hau 2");
 //        System.out.println(studentDAO.insertStudent(student));
@@ -36,16 +38,22 @@ public class StudentManagementApp {
 //            System.out.println(listStudents);
 //        }
 
-        Fresher fresher = new Fresher();
-        fresher.setName("Pham van hau 3");
+//        Fresher fresher = new Fresher();
+//        fresher.setName("Pham van hau 3");
+//
+//        Address address = new Address();
+//        address.setDistrict("Quan 11");
+//        address.setStreet("Lac long quan");
+//
+//        fresher.setAddress(address);
+//
+//        studentHibernateDao.save(fresher);
 
-        Address address = new Address();
-        address.setDistrict("Quan 11");
-        address.setStreet("Lac long quan");
+//        Student student = new Student();
+//        student.setName("Pham van hau jpa");
+//        studentService.save(student);
 
-        fresher.setAddress(address);
-
-        studentHibernateDao.save(fresher);
+        studentService.test();
 
     }
 }
