@@ -2,6 +2,7 @@ package com.coderzero.services;
 
 import com.coderzero.models.Student;
 import com.coderzero.repository.StudentRepository;
+import org.hibernate.tool.schema.internal.exec.ScriptTargetOutputToFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,9 @@ public class StudentService {
     }
 
     public void test(){
-        System.out.println(studentRepository.count());
-        System.out.println(studentRepository.findAll());
+//        System.out.println(studentRepository.count());
+//        System.out.println(studentRepository.findAll());
+//        System.out.println(studentRepository.findByIdOrName(5,"Long tran"));
+        System.out.println(studentRepository.fintBySpecialName("%jpa"));
     }
 }

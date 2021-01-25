@@ -48,3 +48,9 @@
     - Repository Interfaces: Chúng ta không cẩn sử dụng ``@Repository`` để qui định một class là repository. Chúng ta sẽ sử dụng ``Query DSL`` hoặc
      ``Query method``.
     - Để làm việc với Spring JPA ta cần bổ sung các dependencies như: hibernate-entitymanager,spring-data-jpa.
+    - Sau khi cấu hình JPA trong context.xml, xong chúng ta chỉ sử dụng crud vào db mà không cần quan tâm đến JDBC hoặc hibernate query vào db nh
+    ư thế nào. Chúng ta chỉ sử dụng các method của interface đã build sẵn.
+    - **Query Method**: trong jpa chúng ta có thể tự viết thêm methods để thuận tiện trong từng project.
+    - **@Query**: khi method của ta dài hoặc là query method của JPA không hỗ trợ thì ta tự định nghĩa method bằng cách dùng annotation ``@Query("c
+âu query cụ thể")
+    `` bên trên method trong repository cụ thể.
